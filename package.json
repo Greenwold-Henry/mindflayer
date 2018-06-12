@@ -1,0 +1,26 @@
+{
+  "name": "mindflayer",
+  "version": "1.0.0",
+  "description": "Number training mind workout!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monkhouse/mindflayer.git"
+  },
+  "keywords": [
+    "math",
+    "training"
+  ],
+  "author": "Henry Greenwold",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monkhouse/mindflayer/issues"
+  },
+  "homepage": "https://github.com/monkhouse/mindflayer#readme",
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
+}
