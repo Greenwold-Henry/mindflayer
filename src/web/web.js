@@ -21,6 +21,16 @@ const out = (str, style) => {
 const game = new Game(ask, out);
 game.nextQuestion();
 
+window.onGameChange = (gameType) => {
+    const avgTime = document.getElementById("avgTime");
+    avgTime.innerHTML = escapeHtml(`Average time: -- s`);
+    const correct = document.getElementById("correct");
+    correct.innerHTML = escapeHtml(`Correct: --`);
+
+    game.setGameType(gameType);
+    game.nextQuestion();
+}
+
 window.onUserInput = (input) => {
     game.parseAnswer(input);
 

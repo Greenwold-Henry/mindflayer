@@ -24,7 +24,7 @@
         <div class="ui grid">
         <div class="three column row">
             <div class="column">
-                <select class="ui selection dropdown">
+                <select id="selectGame" class="ui selection dropdown">
                     <option selected="" value="squares">Squaring game</option>
                     <option value="roots">Square roots game</option>
                 </select>
@@ -62,6 +62,11 @@
          .replace(/'/g, "&#039;");
     }
 
+    const selectGame = document.getElementById("selectGame");
+    selectGame.addEventListener("change", function(event) {
+        window.onGameChange(selectGame.value);
+    });
+
     const userInput = document.getElementById("userInput");
     userInput.addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
@@ -74,7 +79,6 @@
             newElement.classList.add("repeatInput");
             
             const outputArea = document.getElementById("outputArea");
-            //outputArea.appendChild(document.createElement('br'));
             outputArea.appendChild(newElement);
             outputArea.scrollTop = outputArea.scrollHeight;
 

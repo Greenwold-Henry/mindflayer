@@ -7,6 +7,16 @@ module.exports = class Game {
         this.mOut = out;
         this.mAvgTime = 0;
         this.mQuestionTime = Date.now();
+        this.mGameType = 'squares';
+    }
+
+    setGameType(gameType) {
+        this.mNumQuestions = 0;
+        this.mNumRight = 0;
+        this.mNextAnswer = '';
+        this.mAvgTime = 0;
+        this.mQuestionTime = Date.now();
+        this.mGameType = gameType;
     }
 
     parseAnswer(input) {
@@ -26,9 +36,15 @@ module.exports = class Game {
         while (num % 10 === 0) {
             num = 10 + Math.ceil(Math.random() * 89);
         }
-        this.mNextAnswer = '' + num * num;
         this.mQuestionTime = Date.now();
-        return this.mAsk(`Square ${num} >> `);
+
+        if (this.mGameType === 'squares') {
+            this.mNextAnswer = '' + num * num;
+            return this.mAsk(`Square ${num} >> `);
+        } else { // roots
+            this.mNextAnswer = '' + num;
+            return this.mAsk(`Square root of ${num * num} >> `);
+        }
     }
 
 
