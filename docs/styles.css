@@ -13,7 +13,7 @@ h2, h3 {
 }
 
 .outputArea {
-  height:400px;
+  height:200px;
   overflow-y: scroll;
 }
 

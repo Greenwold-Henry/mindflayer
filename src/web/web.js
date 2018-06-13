@@ -23,5 +23,11 @@ game.nextQuestion();
 
 window.onUserInput = (input) => {
     game.parseAnswer(input);
+
+    const avgTime = document.getElementById("avgTime");
+    avgTime.innerHTML = escapeHtml(`Average time: ${Math.round(game.mAvgTime*100)/100} s`);
+    const correct = document.getElementById("correct");
+    correct.innerHTML = escapeHtml(`Correct: ${game.mNumRight}/${game.mNumQuestions} (${Math.round(game.mNumRight/game.mNumQuestions*1000)/10}%)`);
+
     game.nextQuestion();
 }

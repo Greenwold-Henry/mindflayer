@@ -21,8 +21,29 @@
         <br/>
         <h1 id="title" class="ui dividing header">Room: An Interactive Fiction engine</h1>
 
+        <div class="ui grid">
+        <div class="three column row">
+            <div class="column">
+                <select class="ui selection dropdown">
+                    <option selected="" value="squares">Squaring game</option>
+                    <option value="roots">Square roots game</option>
+                </select>
+            </div>
+            <div class="column">
+                <div id="correct" class="ui fluid big label">
+                    Correct: --
+                </div>
+            </div>
+            <div class="column">
+                <div id="avgTime" class="ui fluid big label">
+                    Average time: -- s
+                </div>
+            </div>
+          </div>
+        </div>
+
         <div id="outputArea" class="ui outputArea inverted segment"></div>
-        <div class="ui fluid labeled input">
+        <div class="ui fluid right action left labeled input">
             <div id="prompt" class="ui label">
                 >>
             </div>
