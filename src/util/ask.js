@@ -1,4 +1,5 @@
 const readline = require('readline');
+const chalk = require('chalk');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -8,7 +9,7 @@ const rl = readline.createInterface({
 // jshint ignore:start
 async function ask(q) {
     return new Promise((resolve, reject) => {
-        rl.question(q, (data) => resolve(data));
+        rl.question(chalk.blueBright(q), (data) => resolve(data));
     });
 }
 // jshint ignore:end

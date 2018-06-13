@@ -1,0 +1,39 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Bitter', 'Georgia', 'Garamond', 'Times New Roman', 'Times', serif;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  background: #A0A0A0;
+}
+
+h2, h3 {
+    font-family: 'Bitter', 'Georgia', 'Garamond', 'Times New Roman', 'Times', serif;
+}
+
+.outputArea {
+  height:400px;
+  overflow-y: scroll;
+}
+
+.say {
+  color: rgb(255, 238, 47);
+}
+
+.wrong {
+  color: rgb(255, 78, 47);
+  font-weight: bold;
+}
+
+.correct {
+  color: rgb(103, 189, 27);
+}
+
+/*.line {
+  margin-bottom: 1px;
+}*/
+
+.repeatInput {
+  color: rgb(114, 212, 254);
+}

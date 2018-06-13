@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Mindflayer</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Bitter:regular,bold,italic" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="ui text container">
+        <br/>
+        <h1 id="title" class="ui dividing header">Room: An Interactive Fiction engine</h1>
+
+        <div id="outputArea" class="ui outputArea inverted segment"></div>
+        <div class="ui fluid labeled input">
+            <div id="prompt" class="ui label">
+                >>
+            </div>
+            <input id="userInput" type="text" placeholder="Answer please...">
+        </div>
+    </div>
+</body>
+<script src="js/bundle.js"></script>
+<script>
+    function escapeHtml(unsafe) {
+        return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+    }
+
+    const userInput = document.getElementById("userInput");
+    userInput.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            
+            const prompt = document.getElementById('prompt');
+            const promptText = prompt.innerText;
+
+            const newElement = document.createElement('div');
+            newElement.innerHTML = escapeHtml(promptText + ' ' + userInput.value);
+            newElement.classList.add("repeatInput");
+            
+            const outputArea = document.getElementById("outputArea");
+            //outputArea.appendChild(document.createElement('br'));
+            outputArea.appendChild(newElement);
+            outputArea.scrollTop = outputArea.scrollHeight;
+
+            window.onUserInput(userInput.value);
+            userInput.value = "";
+        }
+    });
+</script>
+</html>
